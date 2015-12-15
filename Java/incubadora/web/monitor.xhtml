@@ -6,24 +6,51 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-</h:head>
+	<title><h:outputText value="Monitoramento Incubadora" /></title>
+	<style>
+.center {
+	margin: auto;
+	top: 0px;
+	width: 30%;
+}
 
-<h:body>
+.right {
+	position: absolute;
+	width: 30%;
+	right: 0px;
+	top: 58px;
+}
+
+.left {
+	position: absolute;
+	width: 30%;
+	left: 0px;
+}
+</style>
+</h:head>
+<h:body style="">
+	<h2 style="text-align: center;">Monitoramento Incubadora</h2>
 	<h:form id="formMonitor">
-		<p:chart id="medidorTemperatura" type="metergauge"
-			model="#{monitor.modeloMedidorTemperatura}"
-			style="width:400px;height:250px;" />
-		<p:chart id="medidorUmidade" type="metergauge"
-			model="#{monitor.modeloMedidorUmidade}"
-			style="width:400px;height:250px;" />
-		<p:chart id="medidorLuminosidade" type="metergauge"
-			model="#{monitor.modeloMedidorLuminosidade}"
-			style="width:400px;height:250px;" />
-		<p:chart id="medidorSom" type="line" model="#{monitor.modeloMedidorSom}"
-			style="height:300px;" />
+		<div class="left">
+			<p:chart id="medidorTemperatura" type="metergauge"
+				model="#{monitor.modeloMedidorTemperatura}"
+				style="width:400px;height:250px;" />
+		</div>
+		<div class="center">
+			<p:chart id="medidorUmidade" type="metergauge"
+				model="#{monitor.modeloMedidorUmidade}"
+				style="width:400px;height:250px;" />
+		</div>
+		<div class="right">
+			<p:chart id="medidorLuminosidade" type="metergauge"
+				model="#{monitor.modeloMedidorLuminosidade}"
+				style="width:400px;height:250px;" />
+		</div>
+		<p:chart id="medidorSom" type="line"
+			model="#{monitor.modeloMedidorSom}" style="height:300px;" />
 		<p:poll interval="1" listener="#{monitor.lerSensores}"
 			update="formMonitor:medidorTemperatura,
-formMonitor:medidorUmidade, formMonitor:medidorLuminosidade, formMonitor:medidorSom	">
+formMonitor:medidorUmidade, formMonitor:medidorLuminosidade, formMonitor:medidorSom">
 		</p:poll>
 	</h:form>
 </h:body>
