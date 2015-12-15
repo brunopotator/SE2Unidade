@@ -54,14 +54,17 @@ public class Monitor {
 		modeloMedidorTemperatura = criarModeloTemperatura();
 		modeloMedidorTemperatura.setTitle("Temperatura");
 		modeloMedidorTemperatura.setGaugeLabel("Celsius");
-
+		modeloMedidorTemperatura.setSeriesColors("FF0000,FFFF00,00FF00,FFFF00,FF0000");
+		
 		modeloMedidorUmidade = criarModeloUmidade();
 		modeloMedidorUmidade.setTitle("Umidade");
 		modeloMedidorUmidade.setGaugeLabel("Percentual");
+		modeloMedidorUmidade.setSeriesColors("FF0000,FFFF00,00FF00,FFFF00,FF0000");
 
 		modeloMedidorLuminosidade = criarModeloLuminosidade();
 		modeloMedidorLuminosidade.setTitle("Luminosidade");
 		modeloMedidorLuminosidade.setGaugeLabel("Valor");
+		modeloMedidorLuminosidade.setSeriesColors("FFFF00,008B00,00FF00,008B00,FFFF00");
 
 		modeloMedidorSom = criarModeloSom();
 		modeloMedidorSom.setTitle("Presença Sonora");

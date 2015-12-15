@@ -12,11 +12,9 @@ public class SingleConector {
 
 	private static Semaphore semaforo;
 
-	// vamos chamar a fábrica e ela precisa da localização da biblioteca
 	public static void iniciarComunicacaoRF(String libPath) {
 		info = new Informacao();
 		comRF = FabricaConectores.getConector(libPath);
-		// System.out.println("Porta: " + PORTA);
 		if (comRF.iniciar(PORTA) == 0) {
 			System.out.println("Acesso a sensores iniciado com sucesso.");
 			dispensarPrimeirasLeituras();
@@ -33,10 +31,8 @@ public class SingleConector {
 					+ comRF.getSom() + "/ " + comRF.getUmidade() + "/ " + comRF.getRfid());
 
 			try {
-				// 50 pq o arduino está com sleep de 250
 				Thread.sleep(250);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -60,12 +56,10 @@ public class SingleConector {
 	}
 
 	public static Informacao getInformacao() {
-		// Cria o semáforo e seta todas as informações
 		Informacao info = new Informacao();
 		try {
 			semaforo.acquire();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

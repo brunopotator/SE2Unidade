@@ -32,7 +32,6 @@ public class ConfiguradorContexto extends ConfigureListener {
 		try {
 			tLeitor.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Finalizando o tomcat...");
