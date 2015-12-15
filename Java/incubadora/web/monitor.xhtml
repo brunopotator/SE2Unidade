@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<h:form id="formMonitor">
+		<p:chart id="medidorTemperatura" type="metergauge"
+			model="#{monitor.modeloMedidorTemperatura}"
+			style="width:400px;height:250px;" />
+		<p:chart id="medidorUmidade" type="metergauge"
+			model="#{monitor.modeloMedidorUmidade}"
+			style="width:400px;height:250px;" />
+		<p:chart id="medidorLuminosidade" type="metergauge"
+			model="#{monitor.modeloMedidorLuminosidade}"
+			style="width:400px;height:250px;" />
+		<p:chart id="medidorSom" type="line" model="#{monitor.modeloMedidorSom}"
+			style="height:300px;" />
+		<p:poll interval="1" listener="#{monitor.lerSensores}"
+			update="formMonitor:medidorTemperatura,
+formMonitor:medidorUmidade, formMonitor:medidorLuminosidade, formMonitor:medidorSom	">
+		</p:poll>
+	</h:form>
+</h:body>
+</html>
